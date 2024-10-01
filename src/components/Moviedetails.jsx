@@ -1,0 +1,89 @@
+import React from 'react'
+import { useParams } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import Navbar from './Navbar';
+import Review from './Review';
+
+const BASE_URL="https://api.themoviedb.org/3"
+
+const Moviedetails = () => {
+  const [movie,setMovie]=useState([])
+  const [review,setReview]=useState([])
+    let { movieId } = useParams();
+    useEffect(()=>{
+      const loadMovies = async () => {
+        
+          try {
+            const response = await fetch(`${BASE_URL}/movie/${movieId}?language=en-US&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`);
+            if (!response.ok) {
+              throw new Error('Failed to fetch movies');
+            }
+            const data = await response.json();
+          //   console.log(data);
+            setMovie(data);
+            
+            
+          
+            return data;
+          } catch (error) {
+            console.error('Error fetching movies:', error);
+            return [];
+          }
+        };
+        loadMovies();
+  },[movieId]) //use effect finish
+  https://api.themoviedb.org/3/movie/519182/reviews?language=en-US&page=1&api_key=e30642e1b0fe15b1c6d04f0fc1e1514a
+  useEffect(()=>{
+    const loadReview=async()=>{
+        try{
+        
+          const response=await fetch(`${BASE_URL}/movie/519182/reviews?language=en-US&page=1&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`);
+          if(!response.ok){
+            throw new Error("Failed to Fetch Reviews") ;
+          }
+          const data=await response.json();
+          setReview(data.results);
+          return(data.results);
+        }
+        catch(error){
+          console.error("Error Fetching Review",error);
+          return []
+        }
+    };//async end
+    loadReview();
+  },[])//useEffect end
+
+  return (
+    <>
+    <Navbar />
+    <div>
+      <div className="outer">
+         <div className="detail-image">
+      <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="movie-list-item-image"/>
+      </div>
+      <div className="title-overview">
+      {
+        movie.original_title
+      
+        // <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="movie-list-item-image"/>
+      } 
+      {
+        movie.overview
+      }
+      </div>
+      {
+        review.map((item,index)=>{
+          <Review author={item.author} content={item.content} key={index} />
+
+        })
+      }
+      </div>
+{movieId}
+
+        
+    </div>
+    </>
+  )
+}
+
+export default Moviedetails

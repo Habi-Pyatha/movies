@@ -1,21 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 
 import reportWebVitals from './reportWebVitals';
-import Navbar from './components/Navbar';
-import Featured from './components/Featured';
 import Movie from './components/Movie';
-import Sidebar from './components/Sidebar';
+import Moviedetails from './components/Moviedetails';
+import App from './App';
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Movie />,
+      },
+    ],
+  },
+  {
+    path: "/moviedetail/:movieId",
+    element: <Moviedetails />
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <Navbar/>
-    <Sidebar/>
-    <Featured/>
-    <Movie/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

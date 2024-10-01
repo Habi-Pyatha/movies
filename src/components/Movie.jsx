@@ -1,22 +1,19 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Movielist from './Movielist';
- 
+import Navbar from './Navbar';
+import { Link } from 'react-router-dom';
+
 const BASE_URL="https://api.themoviedb.org/3"
 function Movie() {
-    // const fetch=require('node-fetch');
-    // 
-    // console.log(`${process.env.MOVIE_API_KEY}`);
-    // const [title,setTitle]=useState('')
-    // const[description,setDescription]=useState('')
-    const [movies,setMovies]=useState([])
-    const [category,setCategory]=useState('popular')
     
-    // setCategory=useCallback((function categoryChange(e){
-    //     return(e.target.value)
-    // }),[categoryChange])
-    function categoryChange(e){
-        return(e.target.value)
-    }
+    const [movies,setMovies]=useState([])
+    const [category,setCategory]=useState('now_playing')
+    
+    
+    // function categoryChange(e){
+    //     setCategory(e.target.value)
+    // }
+    const categoryChange=useCallback((e)=>setCategory(e.target.value))
     useEffect(()=>{
         const loadMovies = async () => {
             try {
@@ -28,8 +25,6 @@ function Movie() {
             //   console.log(data);
               setMovies(data.results);
               
-              
-            //   <Movielist title:{data.result.} description:{}/>
               return data.results;
             } catch (error) {
               console.error('Error fetching movies:', error);
@@ -42,43 +37,16 @@ function Movie() {
 
 
 
-    // const url=`${BASE_URL}movie/popular?language=en-US&page=1&api_key=${process.env.MOVIE_API_KEY}`;
-   
-    // const options={method:'GET',headers:{accept:'application/json'}};
-    // const [title,setTitle]=useState('')
-    // const[description,setDescription]=useState('')
-    // useEffect(()=>{
-    //     fetch(url,options)
-    //     .then(res=>res.json())
-    //     .then(json=>{
-    //         // console.log(json["results"][0]["original-title"]);
-    //         console.log(json);
-            
-             
-
-    //     })
-    //     .catch(err=>console.error('error:'+err));
-        
-
-    // })
-
     
-    // useEffect
     return (
+        <>
+        
+    <Navbar />
         <div className="container">
     <div className="content-container"> 
         <div className="movie-list-container">
         <h1 className="movie-list-title">{category}</h1>
-        {/* <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-            <a href="#" value="now_playing">Now Playing</a>
-            <a href="#" value="popular">Popular</a>
-            <a href="#" value="top_rated">Trending</a>
-            <a href="#" value="upcoming">Upcoming</a>
-        </div>
-        </div> */}
-
+        
         <select onChange={categoryChange}>
 
         <option value="now_playing">Now Playing</option>
@@ -93,64 +61,22 @@ function Movie() {
             <div className="movie-list">
                 {
                     movies?.map((item,index)=> (
+                        <Link to={`/moviedetail/${item.id}`}>
                        <Movielist title={item.title} description={item.overview} image={item.poster_path} index={index} key={index}/>
+                       </Link>
                     ))
                 }
 
-                {/* <Movielist title:{movieAPI.original_title} description:{movieAPI.overview}  */}
-                {/* <div className="movie-list-item">
-                    <img src={one} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={two} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={three} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={four} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={one} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={one} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={one} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div>
-                <div className="movie-list-item">
-                    <img src={one} alt="" className="movie-list-item-image"/>
-                    <span className="movie-list-item-title">Her</span>
-                    <p className="movie-list-item-desc">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis inventore ut quod, eveniet incidunt accusantium accusamus nam sequi aperiam aspernatur.</p>
-                    <button className="movie-list-item-button"> WATCH</button>
-                </div> */}
+                
             </div>
             <i className="fa-solid fa-arrow-right arrow"></i>
         </div>
 </div>
 </div></div>
+
+
+        </>
+       
 
     )
 }

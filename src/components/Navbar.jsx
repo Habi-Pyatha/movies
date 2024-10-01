@@ -1,7 +1,9 @@
 import React from 'react'
-// import App from '../App'
+
 import './css/style.css'
+
 import profile from './img/profile.jpg'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
     return (
@@ -11,11 +13,11 @@ function Navbar() {
         <div className="logo-container"><h1 className="logo">Movies</h1></div>
         <div className="menu-container">
             <ul className="menu-list">
-                <li className="menu-list-item active" >Home</li>
-                <li className="menu-list-item">Movies</li>
-                <li className="menu-list-item">Series</li>
-                <li className="menu-list-item">Popular</li>
-                <li className="menu-list-item">Trends</li>
+                <li className="menu-list-item"><Link to="/">Home</Link></li>
+                <li className="menu-list-item"><Link to={`/`}>Movies</Link></li>
+                <li className="menu-list-item"><a href=""></a>Series</li>
+                <li className="menu-list-item"><a href=""></a>Popular</li>
+                <li className="menu-list-item"><a href=""></a>Trends</li>
                 
             </ul>
         </div>
