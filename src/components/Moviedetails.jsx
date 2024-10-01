@@ -37,7 +37,7 @@ const Moviedetails = () => {
     const loadReview=async()=>{
         try{
         
-          const response=await fetch(`${BASE_URL}/movie/519182/reviews?language=en-US&page=1&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`);
+          const response=await fetch(`${BASE_URL}/movie/${movieId}/reviews?language=en-US&page=1&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`);
           if(!response.ok){
             throw new Error("Failed to Fetch Reviews") ;
           }
@@ -62,23 +62,22 @@ const Moviedetails = () => {
       <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="movie-list-item-image"/>
       </div>
       <div className="title-overview">
-      {
-        movie.original_title
+        <h1>
+        { movie.original_title}
+        </h1>
+       
+        <p>{movie.overview}</p>
+            
+       </div>
       
-        // <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="movie-list-item-image"/>
-      } 
-      {
-        movie.overview
-      }
       </div>
       {
-        review.map((item,index)=>{
-          <Review author={item.author} content={item.content} key={index} />
-
+        
+        review?.map((item,index)=>{
+         return <Review author={item.author} content={item.content} key={index} />
         })
       }
-      </div>
-{movieId}
+{/* {movieId} */}
 
         
     </div>
