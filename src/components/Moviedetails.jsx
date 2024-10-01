@@ -74,7 +74,7 @@ const Moviedetails = () => {
       {
         
         review?.map((item,index)=>{
-         return <Review author={item.author} content={item.content} key={index} />
+         return <Review author={item.author} content={item.content} rating={item.author_details.rating} key={index} />
         })
       }
 {/* {movieId} */}
