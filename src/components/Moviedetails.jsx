@@ -32,7 +32,7 @@ const Moviedetails = () => {
         };
         loadMovies();
   },[movieId]) //use effect finish
-  https://api.themoviedb.org/3/movie/519182/reviews?language=en-US&page=1&api_key=e30642e1b0fe15b1c6d04f0fc1e1514a
+  
   useEffect(()=>{
     const loadReview=async()=>{
         try{

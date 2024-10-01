@@ -10,12 +10,12 @@ function Navbar() {
         <>
         <div className="navbar">
     <div className="navbar-container">
-        <div className="logo-container"><h1 className="logo">Movies</h1></div>
+        <div className="logo-container"><Link to='/' className='no-underline'><h1 className="logo">Movies</h1></Link></div>
         <div className="menu-container">
             <ul className="menu-list">
-                <li className="menu-list-item"><Link to="/">Home</Link></li>
-                <li className="menu-list-item"><Link to={`/`}>Movies</Link></li>
-                <li className="menu-list-item"><a href=""></a>Series</li>
+                <li className="menu-list-item"><Link className='no-underline' to="/">Home</Link></li>
+                <li className="menu-list-item"><Link className='no-underline' to={`/`}>Movies</Link></li>
+                <li className="menu-list-item"><Link className='no-underline' to="/sidebar">Series</Link></li>
                 <li className="menu-list-item"><a href=""></a>Popular</li>
                 <li className="menu-list-item"><a href=""></a>Trends</li>
                 

@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import Movie from './components/Movie';
 import Moviedetails from './components/Moviedetails';
 import App from './App';
+import Sidebar from './components/Sidebar';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
     path: "/moviedetail/:movieId",
     element: <Moviedetails />
   },
+  {
+    path:'/sidebar',
+    element:<Sidebar/>
+  }
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
