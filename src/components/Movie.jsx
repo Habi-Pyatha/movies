@@ -33,7 +33,7 @@ function Movie() {
             }
           };
           loadMovies();
-    },[category])
+    },[dispatch,category])
     
 
 
@@ -64,7 +64,7 @@ function Movie() {
                     movies?.map((item,index)=> (
                       
                         <Link to={`/moviedetail/${item.id}`} key={item.id || index}>
-                       <Movielist title={item.title} description={item.overview} image={item.poster_path} index={index} key={index}/>
+                       <Movielist title={item.title} description={item.overview} image={item.poster_path}  key={index}/>
                        </Link>
                     ))
                 }
