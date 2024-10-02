@@ -16,8 +16,8 @@ function Navbar() {
                 <li className="menu-list-item"><Link className='no-underline' to="/">Home</Link></li>
                 <li className="menu-list-item"><Link className='no-underline' to={`/movies`}>Movies</Link></li>
                 <li className="menu-list-item"><Link className='no-underline' to="/sidebar">Series</Link></li>
-                <li className="menu-list-item"><a href=""></a>Popular</li>
-                <li className="menu-list-item"><a href=""></a>Trends</li>
+                <li className="menu-list-item"><a href="/">Popular</a></li>
+                <li className="menu-list-item"><a href="/">Trends</a></li>
                 
             </ul>
         </div>

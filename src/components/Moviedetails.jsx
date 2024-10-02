@@ -1,14 +1,18 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import { useEffect } from 'react';
 import Navbar from './Navbar';
 import Review from './Review';
-
+import { useDispatch, useSelector } from 'react-redux';
+import {  fetchDescriptions, fetchReviews, selectDescription, selectReview } from '../redux/reviewSlice';
 const BASE_URL="https://api.themoviedb.org/3"
 
 const Moviedetails = () => {
-  const [movie,setMovie]=useState([])
-  const [review,setReview]=useState([])
+  // const [movie,setMovie]=useState([])
+  // const [review,setReview]=useState([])
+  const movie=useSelector(selectDescription)
+  const review=useSelector(selectReview)
+  const dispatch=useDispatch()
     let { movieId } = useParams();
     useEffect(()=>{
       const loadMovies = async () => {
@@ -20,7 +24,8 @@ const Moviedetails = () => {
             }
             const data = await response.json();
           //   console.log(data);
-            setMovie(data);
+            // setMovie(data);
+            dispatch(fetchDescriptions(data));
             
             
           
@@ -31,7 +36,7 @@ const Moviedetails = () => {
           }
         };
         loadMovies();
-  },[movieId]) //use effect finish
+  },[movieId,dispatch]) //use effect finish
   
   useEffect(()=>{
     const loadReview=async()=>{
@@ -42,8 +47,9 @@ const Moviedetails = () => {
             throw new Error("Failed to Fetch Reviews") ;
           }
           const data=await response.json();
-          setReview(data.results);
-          return(data.results);
+          // setReview(data.results);
+          // return(data.results);
+          dispatch(fetchReviews(data.results));
         }
         catch(error){
           console.error("Error Fetching Review",error);
@@ -51,8 +57,21 @@ const Moviedetails = () => {
         }
     };//async end
     loadReview();
-  },[movieId])//useEffect end
+  },[movieId,dispatch])//useEffect end
 
+  // const options = {
+  //   method: 'POST',
+  //   headers: {
+  //     accept: 'application/json',
+  //     'Content-Type': 'application/json;charset=utf-8',
+  //     Authorization: process.env.REACT_APP_BEARER
+  //   }
+  // };
+  
+  // fetch('https://api.themoviedb.org/3/movie/movie_id/rating', options)
+  //   .then(response => response.json())
+  //   .then(response => console.log(response))
+  //   .catch(err => console.error(err));
   return (
     <>
     <Navbar />
