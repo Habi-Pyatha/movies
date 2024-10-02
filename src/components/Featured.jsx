@@ -2,9 +2,12 @@ import React from 'react'
 import ft from './img/f-t-1.png'
 import f1 from './img/f-1.jpg'
 import './css/style.css'
+import Navbar from './Navbar'
+import Movie from './Movie'
 function Featured() {
     return (
         <>
+        <Navbar/>
         {/* <div className="container"> */}
         <div className="content-container">
         <div className="featured-content"
@@ -20,6 +23,7 @@ function Featured() {
         </div>
         </div>
         {/* </div> */}
+        <Movie/>
         </>
     )
 }

@@ -51,7 +51,7 @@ const Moviedetails = () => {
         }
     };//async end
     loadReview();
-  },[])//useEffect end
+  },[movieId])//useEffect end
 
   return (
     <>

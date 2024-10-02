@@ -2,18 +2,19 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Movielist from './Movielist';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
-
+import { useDispatch,useSelector } from 'react-redux';
+import { selectMovies } from '../redux/movieSlice';
+import { fetchMovies } from '../redux/movieSlice';
 const BASE_URL="https://api.themoviedb.org/3"
 function Movie() {
     
-    const [movies,setMovies]=useState([])
+    // const [movies,setMovies]=useState([])
     const [category,setCategory]=useState('now_playing')
+    const dispatch=useDispatch()
+    const movies=useSelector(selectMovies);
     
     
-    // function categoryChange(e){
-    //     setCategory(e.target.value)
-    // }
-    const categoryChange=useCallback((e)=>setCategory(e.target.value))
+    const categoryChange=useCallback((e)=>setCategory(e.target.value),[])
     useEffect(()=>{
         const loadMovies = async () => {
             try {
@@ -23,8 +24,8 @@ function Movie() {
               }
               const data = await response.json();
             //   console.log(data);
-              setMovies(data.results);
-              
+              // setMovies(data.results);
+              dispatch(fetchMovies(data.results)) //sends as payload to movieSlice
               return data.results;
             } catch (error) {
               console.error('Error fetching movies:', error);
@@ -61,7 +62,8 @@ function Movie() {
             <div className="movie-list">
                 {
                     movies?.map((item,index)=> (
-                        <Link to={`/moviedetail/${item.id}`}>
+                      
+                        <Link to={`/moviedetail/${item.id}`} key={item.id || index}>
                        <Movielist title={item.title} description={item.overview} image={item.poster_path} index={index} key={index}/>
                        </Link>
                     ))

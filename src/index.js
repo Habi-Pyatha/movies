@@ -7,8 +7,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import Movie from './components/Movie';
 import Moviedetails from './components/Moviedetails';
+
 import App from './App';
 import Sidebar from './components/Sidebar';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,23 +21,38 @@ const router = createBrowserRouter([
         path: "/",
         element: <Movie />,
       },
+      {
+        path:"/movies",
+        element:<Movie/>
+      },
+      {
+        path: "/moviedetail/:movieId",
+        element: <Moviedetails />
+      },
+      {
+        path:'/sidebar',
+        element:<Sidebar/>
+      }
     ],
   },
-  {
-    path: "/moviedetail/:movieId",
-    element: <Moviedetails />
-  },
-  {
-    path:'/sidebar',
-    element:<Sidebar/>
-  }
+  
+  // {
+  //   path: "/moviedetail/:movieId",
+  //   element: <Moviedetails />
+  // },
+  // {
+  //   path:'/sidebar',
+  //   element:<Sidebar/>
+  // }
 
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

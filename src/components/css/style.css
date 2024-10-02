@@ -39,9 +39,12 @@ body{
 }
 .menu-list-item{
     margin:30px;
+    
 }
+
 .menu-list-item.active{
     font-weight: bold;
+    
 }
 .profile-container{
     flex:2;
@@ -157,6 +160,7 @@ body{
     margin:30px;
     position:relative;
 }
+
 .movie-list-item:hover .movie-list-item-image{
     transform: scale(1.2);
     margin:0 30px;
@@ -248,6 +252,7 @@ body{
 }
 .rev-author{
     background-color: aqua;
+    min-width: 150px;
 }
 .title-overview{
     background-color: green;
