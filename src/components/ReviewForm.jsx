@@ -5,9 +5,10 @@ import Review from './Review'
       super(props)
     
       this.state = {
-         name:null,
-         raing:null,
-         review:null,
+        //  name:null,
+        //  raing:null,
+        //  review:null,
+        reviews:[],
          submitted:false,
 
       }
@@ -15,18 +16,26 @@ import Review from './Review'
      myReviewSubmit=(e)=>{
         e.preventDefault();
         const name=e.target.name.value;
-        const rating=e.target.rating.value;
+        const rating=Number(e.target.rating.value);
         const review=e.target.review.value;
-        this.setState({name,rating,review,submitted:true})
+        const newReview={name,rating,review};
+        this.setState((prevState)=>({
+          reviews:[...prevState.reviews,newReview],
+          submitted:true,
+        }));
+
+        // this.setState({name,rating,review,submitted:true})
         // ,()=>{
         //     console.log(this.state);
         //     {
         //     <Review author={name} content={review} rating={rating}  />
         //     }
         // });
-      }  
+        e.target.reset();
+      } ;
   render() {
-    const {name,rating,review,submitted}=this.state;
+    // const {name,rating,review,submitted}=this.state;
+    const {reviews}=this.state;
     const {movieTitle}=this.props;
     return (
       <div>
@@ -44,11 +53,17 @@ import Review from './Review'
         <button>Submit</button>
       </form>
       </div>
-      {
+      {/* {
        submitted &&(
          <Review author={name} content={review} rating={rating}  />
       )
-      }
+      } */}
+      {reviews.length > 0 &&(
+        reviews.map((review,index)=>(
+          <Review key={index} author={review.name} content={review.review} rating={review.rating}/>
+        ))
+
+      )}
       </div>
     )
   }
