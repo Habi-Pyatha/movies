@@ -19,6 +19,6 @@ const reviewSlice=createSlice({
 })
 export const {fetchReviews,fetchDescriptions}=reviewSlice.actions;
 // export const {}=
-export const selectReview=(state)=>state.reviews.reviews;
+export const selectReview=(state)=>state.reviews.reviews; //state.store.slice
 export const selectDescription=(state)=>state.reviews.descriptions;
 export default reviewSlice.reducer

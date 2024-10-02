@@ -277,7 +277,12 @@ body{
     right:0;
     
   }
-  
+  .form-review{
+    margin: 0 5%;
+    padding:20px;
+    background-color: aqua;
+
+}
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
     display: none;
@@ -357,6 +362,7 @@ body{
     .movie-list{
         padding: auto;
     }
+    
 }
 
 @media only screen and (max-width: 768px) {
