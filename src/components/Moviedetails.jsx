@@ -67,12 +67,18 @@ const Moviedetails = () => {
 
   // const back=document.getElementById('title-overview')
   // back.style.backgroundImage=url(`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`)
+  const back = document.getElementById('outer');
+if (back) {
+    back.style.backgroundImage = `url(https://image.tmdb.org/t/p/w200${movie.backdrop_path})`;
+    back.style.backgroundSize = 'cover'; // Ensure the image covers the div
+     back.style.backgroundPosition = 'center';
+}
   return (
     <>
     <Navbar />
     <div>
-      <div className="outer">
-         <div className="detail-image">
+      <div className="outer" id="outer">
+         <div className="detail-image" >
       <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="movie-list-item-image"/>
       {/* <img src={`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`} alt="" className="movie-list-item-image"/> */}
       </div>
