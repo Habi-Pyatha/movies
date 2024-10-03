@@ -21,7 +21,7 @@ function Navbar() {
                 
             </ul>
         </div>
-        <div className="profile-container">
+        {/* <div className="profile-container">
             <img src={profile} alt="profilepics" className="profile-picture"/>
             <div className="profile-text-container">
                 <span className="profile-text">Profile</span>
@@ -32,7 +32,7 @@ function Navbar() {
                 <i className="fa-regular fa-sun toogle-icon"></i>
                 <div className="toggle-ball"> </div>
             </div>
-        </div>
+        </div> */}
     </div>
    </div>
         </>

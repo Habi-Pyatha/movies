@@ -1,460 +1,397 @@
+
 *{
-    margin:0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-    font-family: 'Roboto',sans-serif;
+.navbar {
+    background-color: #333; /* Background color */
+    padding: 10px 20px; /* Padding around the navbar */
 }
 
-.navbar{
-    width:100%;
-    height:50px;
-    background-color: black;
-} 
-.navbar-container{
-    display: flex;
-    align-items: center;
-    
-    padding:0 50px; 
-    height: 100%;
+.navbar-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between logo and menu */
+    align-items: center; /* Center items vertically */
+}
+.logo-coint
+.logo {
+    color: white; /* Logo text color */
+    font-size: 24px; /* Logo font size */
+    margin: 0; /* Remove default margin */
+}
+.no-underline{
+    text-decoration: none;
+}
+.menu-container {
+    display: flex; /* Horizontal layout for menu items */
+}
+
+.menu-list {
+    display: flex; /* Use flex for menu list */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+.menu-list-item {
+    margin: 0 15px; /* Spacing between menu items */
+}
+
+.menu-list-item a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Padding for links */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+.movie-list-item.active a{
     color:white;
-    font-family: sans-serif;
+    background-color: green;
 }
-.logo-container{
-    flex:1;
-    
-    
+.menu-list-item a:hover {
+    background-color: #555; /* Background on hover */
 }
-.logo{
-    
-    font-size: 30px;
-    color: green;
+/* Container Styles */
+.container {
+    max-width: 1200px; /* Maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Padding around the container */
 }
-.menu-container{
-    flex:6;
-    
-}
-.menu-list{
+
+/* Content Container */
+.content-container {
     display: flex;
-    list-style: none;
-}
-.menu-list-item{
-    margin:30px;
-    
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content */
 }
 
-.menu-list-item.active{
-    font-weight: bold;
-    
-}
-.profile-container{
-    flex:2;
-    display:flex;
-    align-items: center;
-    
-    justify-content:flex-end ;
-    
-}
-.profile-text-container{
-    margin:0 20px;
-}
-.profile-picture{ 
-    width:32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-.toggle{
-    width: 40px;
-    height:20px;
-    background-color: white;
-    border-radius: 30px; 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-}
-.toogle-icon{
-    color: goldenrod;
-}
-.toggle-ball{
-    width:18px;
-    height: 18px;
-    background-color: black;
-    position: absolute;
-    right:1px;
-    border-radius: 50%;
-    cursor: pointer;
-    
-}
-.sidebar{
-    width:50px;
-    height:100%;
-    background-color: black;
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    padding-top: 50px;
-
-}
-.left-menu-item{
-    color: white;
-    size: 20px;
-    margin-bottom: 40px;
-}
-.container{
-    background-color: #151515;
-    /* height: calc(100vh-50px); */
-    min-height : calc(100vh - 50px);
-    color:white; 
-}
-.content-container{
-    margin-left: 50px;
-   
-    
-}
-.featured-content{
-    height:50vh;
-    padding: 50px;
-
-}
-.featured-title{
-    width: 200px;
-
-}
-.featured-desc{
-    width: 500px;
-    color: lightgray ;
-    
-}
-.featured-button{
-    background-color: #4dbf00;
-    color: white;
-    padding:10px 20px;
-    border-radius: 20px;
-    border:none;
-    outline:none;
-    font-weight: bold ;
-}
-.movie-list-container{
-    padding: 20px;
-    margin:0 5%
-    
-
-}
-.movie-list-wrapper{
-    position:relative;
-    /* margin:0 5%; */
-    /* width:100%; */
-    /* background-color: #f5deb3; */
-     
-}
-.movie-list{
-    /* display: flex;
-    align-items: center;
-    height: 300px; */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); 
-    /* grid-template-columns: repeat(4,1fr); */
-    gap: 20px; /* Space between grid items */
-     
-}
-.movie-list-item{
-    margin:30px;
-    position:relative;
+/* Movie List Container */
+.movie-list-container {
+    width: 100%; /* Full width */
+    text-align: center; /* Center text */
+    margin-bottom: 20px; /* Space below the movie list */
 }
 
-.movie-list-item:hover .movie-list-item-image{
-    transform: scale(1.2);
-    margin:0 30px;
-    opacity: 0.5;
-    
-}
-.movie-list-item:hover .movie-list-item-title,
-.movie-list-item:hover .movie-list-item-desc,
-.movie-list-item:hover .movie-list-item-button{
-    /* transform: scale(1.2); */
-    margin:0 20px;
-    opacity: 1;
-    
+/* Movie List Title */
+.movie-list-title {
+    font-size: 32px; /* Title font size */
+    color: #34495e; /* Dark color for the title */
+    margin-bottom: 10px; /* Space below the title */
 }
 
+/* Dropdown Styles */
+select {
+    padding: 10px; /* Padding for the dropdown */
+    font-size: 16px; /* Font size for dropdown text */
+    border: 1px solid #bdc3c7; /* Border for dropdown */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 20px; /* Space below dropdown */
+    cursor: pointer; /* Change cursor on hover */
+}
 
-.movie-list-item-image{
-    transition: all 1s ease-in-out;
-    width: 270px;
-    height: 200px;
-    object-fit: cover ;
+/* Movie List Wrapper */
+.movie-list-wrapper {
+    display: flex; /* Flex layout for movie list and arrow */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
 }
-.movie-list-item-title{
-    background-color: #333;
-    padding: 0 10px;
-    font-size: 32px;
-    font-weight: bold;
-    position:absolute;
-    top:10%;
-    left:50px; 
-    opacity : 0;
-    transition: 1s all ease-in-out;
+
+/* Movie List */
+.movie-list {
+    display: flex; /* Horizontal layout for movie items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items */
+    margin: 0 ; /* Center the movie list */
 }
+
+/* Arrow Styles */
+.arrow {
+    font-size: 24px; /* Font size for the arrow */
+    color: #bdc3c7; /* Arrow color */
+    margin-left: 10px; /* Space between movie list and arrow */
+}
+
+/* Pagination Button Styles */
+.pageChangeButton {
+    display: flex; /* Flex layout for pagination buttons */
+    justify-content: center; /* Center buttons */
+    margin-top: 20px; /* Space above pagination */
+}
+
+.next-page {
+    padding: 10px 20px; /* Padding for buttons */
+    font-size: 16px; /* Font size for buttons */
+    background-color: #3498db; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    margin: 0 10px; /* Space between buttons */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.next-page:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+/* Movie List Item Styles */
+.movie-list-item {
+    background-color: #ffffff; /* White background for movie items */
+    border: 1px solid #bdc3c7; /* Border around movie items */
+    border-radius: 8px; /* Rounded corners */
+    width: 200px; /* Fixed width for each movie item */
+    margin: 10px; /* Space between movie items */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s; /* Transition for hover effect */
+}
+
+/* Movie Item Image */
+.movie-list-item-image {
+    width: 100%; /* Full width of the item */
+    height: auto; /* Maintain aspect ratio */
+    border-bottom: 1px solid #bdc3c7; /* Border below image */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+/* Movie Item Title */
+.movie-list-item-title {
+    font-size: 18px; /* Font size for title */
+    color: #34495e; /* Dark color for title */
+    font-weight: bold; /* Bold title */
+    margin: 10px 0; /* Space above and below title */
+    text-align: center; /* Center title */
+}
+
+/* Movie Item Description */
 .movie-list-item-desc {
-    background-color: #333;
-    padding: 10px;
-    font-size: 14px;
-
-    position:absolute;
-    top:30%;
-    left:50px;
-    width:200px; 
-    opacity : 0;
-    transition: 1s all ease-in-out;
-}
-.movie-list-item-button{
-    padding: 10px;
-    background-color: green;
-    color: white;
-    border-radius: 10px;
-    outline: none;
-    border:none;
-    cursor: pointer;
-    position: absolute;
-    bottom: 20px;
-    left: 50px;
-    bottom: 5%;
-    opacity: 0;
-    transition: 1s all ease-in-out;
+    font-size: 14px; /* Font size for description */
+    color: #7f8c8d; /* Gray color for description */
+    margin: 0 10px 10px; /* Space around description */
+    text-align: center; /* Center description */
 }
 
-.arrow{
-    font-style: 120px;
-    position:absolute;
-    top:150px;
-    right:0;
-    color: lightgray;
-    cursor: pointer;
+/* Button Styles (optional) */
+.movie-list-item-button {
+    padding: 8px 12px; /* Padding for button */
+    background-color: #3498db; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    margin: 10px 0; /* Space around button */
+    transition: background-color 0.3s; /* Transition for hover effect */
 }
-.outer{
-    
-    margin:0 20px;
-    display: flex;
-    
-}
-.detail-image{
-    
-    padding:10px;
-}
-.review-box{
-    background-color: yellow;
-    margin:5px 10px ;
-    display: flex;
-    gap:20px;
-}
-.rev{
-    margin:0 10px;
-    padding:20px;
-}
-.rev-author{
-    background-color: aqua;
-    min-width: 150px;
-}
-.title-overview{
-    background-color: green;
-    padding:20px;
-    color: white;
-}
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  .no-underline{
-    text-decoration: none;
-  }
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    right:0;
-    
-  }
-  .form-review{
-    margin: 0 5%;
-    padding:20px;
-    background-color: aqua;
 
+/* Hover Effect */
+.movie-list-item:hover {
+    transform: translateY(-5px); /* Lift the item on hover */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
-.next-page{
-    /* margin:0 40% ; */
-    padding:20px;
-    margin:10px;
-    border-radius: 30px;
+
+/* Outer Container for Movie Details */
+.outer {
+    display: flex; /* Use flexbox for horizontal layout */
+    max-width: 1200px; /* Maximum width for the detail section */
+    margin: 20px auto; /* Center the outer container */
+    padding: 20px; /* Padding around the outer container */
+    border: 1px solid #bdc3c7; /* Border around the detail section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #ffffff; /* White background */
 }
-.pageChangeButton{
-    margin:0 35%;
+
+/* Image Container */
+.detail-image {
+    flex: 1; /* Take up 1 part of the flex container */
+    margin-right: 20px; /* Space between image and text */
+}
+
+/* Title and Overview Section */
+.title-overview {
+    flex: 2; /* Take up 2 parts of the flex container */
+    margin-top:15%;
+}
+
+/* Movie Title */
+.title-overview h1 {
+    font-size: 28px; /* Font size for the title */
+    color: #94afcb; /* Dark color for title */
+    margin-bottom: 10px; /* Space below title */
+    text-shadow: 
+        1px 1px 0 rgba(0, 0, 0, 0.7), /* Right and down */
+        -1px -1px 0 rgba(0, 0, 0, 0.7), /* Left and up */
+        1px -1px 0 rgba(0, 0, 0, 0.7), /* Right and up */
+        -1px 1px 0 rgba(0, 0, 0, 0.7); /* Left and down */
+}
+
+/* Movie Overview Paragraph */
+.title-overview p {
+    font-size: 16px; /* Font size for overview text */
+    color: white; /* Gray color for overview */
+    line-height: 1.6; /* Line height for readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
     
+    text-align: justify;
 }
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-  }
+
+/* Reviews Section */
+.review-container {
+    margin-top: 20px; /* Space above reviews */
+}
+
+/* Review Component Styles */
+.review {
+    border: 1px solid #bdc3c7; /* Border around individual reviews */
+    border-radius: 8px; /* Rounded corners for reviews */
+    padding: 10px; /* Padding inside reviews */
+    margin-bottom: 10px; /* Space below each review */
+    background-color: #f9f9f9; /* Light gray background for reviews */
+}
+
+/* Review Author Styles */
+.review .author {
+    font-weight: bold; /* Bold for author name */
+    color: #34495e; /* Dark color for author name */
+}
+
+/* Review Content Styles */
+.review .content {
+    color: #7f8c8d; /* Gray color for review content */
+}
+
+/* Review Form Container */
+.form-review {
+    background-color: #ffffff; /* White background for the form */
+    border: 1px solid #bdc3c7; /* Border around the form */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the form */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Maximum width of the form */
+    margin: 20px auto; /* Center the form */
+}
+
+/* Form Heading */
+.form-review h1 {
+    font-size: 24px; /* Font size for the heading */
+    color: #34495e; /* Dark color for the heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+/* Label Styles */
+label {
+    font-size: 16px; /* Font size for labels */
+    color: #34495e; /* Dark color for labels */
+    display: block; /* Display labels as block elements */
+    margin-bottom: 5px; /* Space below labels */
+}
+
+/* Input Styles */
+input[type="text"], 
+input[type="range"], 
+textarea {
+    width: 100%; /* Full width for input fields */
+    padding: 10px; /* Padding inside input fields */
+    border: 1px solid #bdc3c7; /* Border around input fields */
+    border-radius: 4px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below input fields */
+}
+
+/* Textarea Styles */
+textarea {
+    resize: none; /* Disable resizing for the textarea */
+}
+
+/* Range Input Styles */
+input[type="range"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    margin-bottom: 5px; /* Space below range input */
+}
+
+/* Submit Button Styles */
+button {
+    padding: 10px 15px; /* Padding for the button */
+    background-color: #3498db; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+/* Submit Button Hover Effect */
+button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+}
+
+/* Review Display Styles */
+.review-box {
+    background-color: #f9f9f9; /* Light gray background for the review box */
+    border: 1px solid #bdc3c7; /* Border around the review box */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside the review box */
+    margin: 15px 5%; /* Space below each review box */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Review Author and Rating */
+.rev-author {
+    font-size: 16px; /* Font size for the author and rating */
+    color: #34495e; /* Dark color for text */
+}
+
+/* Review Content */
+.rev-content {
+    font-size: 14px; /* Font size for review content */
+    color: #7f8c8d; /* Gray color for content */
+    margin-top: 5px; /* Space above review content */
+    text-align: justify;
+}
+
+/* Bold Text within Review */
+.rev-author b,
+.rev-content b {
+    color: #2c3e50; /* Darker color for bold text */
+}
+
+/* Optional: Style for the entire review */
+.rev {
+    display: block; /* Make spans block elements for better spacing */
+    margin-bottom: 5px; /* Space below each line */
+}
+
 /* Responsive Design */
-/* @media only screen and (max-width: 1200px) {
-    .navbar-container {
-        padding: 0 20px;
+@media (max-width: 768px) {
+    .outer {
+        flex-direction: column; /* Stack image and text on smaller screens */
     }
+
+    .detail-image {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Space below image */
+    }
+
+    .navbar-container {
+        flex-direction: column; /* Stack logo and menu vertically */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .menu-container {
+        width: 100%; /* Full width for menu */
+    }
+
+    .menu-list {
+        flex-direction: column; /* Stack menu items vertically */
+        width: 100%; /* Full width for the menu list */
+    }
+
     .menu-list-item {
-        margin: 20px;
+        margin: 10px 0; /* Margin for vertical spacing */
+        width: 100%; /* Full width for each item */
     }
-    .featured-desc {
-        width: 400px;
-    }
-} */
-@media only screen and (max-width: 768px) {
-    .navbar-container {
-        padding: 0 20px;
-    }
-    
-    .menu-list-item {
-        margin: 10px;
-        font-size: 14px; /* Make the font smaller for mobile */
-    }
-    
-    .profile-container {
-        display: none; /* Hide profile info on small screens */
-    }
-    .movie-list-container{
-        /* padding: 20px; */
-        margin:0 5%
-        
-    
-    }
-    .movie-list{
-        /* display: flex;
-        align-items: center;
-        height: 300px; */
-        /* display: grid; */
-        /* grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); Adjust columns based on item width */
-        grid-template-columns: repeat(2,1fr);
-        /* gap: 20px; Space between grid items */
-         
-    }
-}
 
-/* Responsive Design */
-@media only screen and (max-width: 1200px) {
-    .navbar-container {
-        padding: 0 20px;
-    }
-    .menu-list-item {
-        margin: 20px;
-    }
-    .featured-desc {
-        width: 400px;
-    }
-    .logo{
-        font-size: 10px;
-        color: red;
-    }
-    .menu-list-item{
-        font-size: 10px;
-        color:red;
-    }
-    .movie-list{
-        padding: auto;
-    }
-    
-}
-
-@media only screen and (max-width: 768px) {
-    
-    .profile-container {
-        margin-top: 10px;
-        size: 20px;
-    }
-    .featured-content {
-        padding: 30px;
-        height: auto;
-    }
-    .featured-desc {
-        width: 100%;
-    }
-    .featured-button {
-        padding: 8px 15px;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .navbar-container {
-        /* padding: 0 5px; */
-        padding: auto;
-        
-    }
-    .featured-content {
-        padding: 20px;
-    }
-    .featured-title {
-        width: 150px;
-    }
-    .featured-desc {
-        font-size: 14px;
-    }
-    .movie-list-item {
-        /* margin: 10px; */
-        margin: auto;
-        
-    }
-    /* .logo{
-        font-size: 10px;
-        color: red;
-    } */
-    
-
-    .movie-list-item-image {
-        width: 150px;
-        height: 120px;
-    }
-    .movie-list-item-title {
-        font-size: 24px;
-        left: 20px;
-    }
-    .movie-list-item-desc {
-        font-size: 12px;
-        left: 20px;
-        width: 150px;
-    }
-    .movie-list-item-button {
-        padding: 5px;
-        bottom: 10px;
-        left: 20px;
+    .menu-list-item a {
+        width: 100%; /* Full width for links */
+        text-align: center; /* Center text */
     }
 }
