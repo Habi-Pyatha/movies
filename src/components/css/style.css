@@ -287,6 +287,16 @@ body{
     background-color: aqua;
 
 }
+.next-page{
+    /* margin:0 40% ; */
+    padding:20px;
+    margin:10px;
+    border-radius: 30px;
+}
+.pageChangeButton{
+    margin:0 35%;
+    
+}
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
     display: none;

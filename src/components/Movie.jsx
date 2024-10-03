@@ -34,9 +34,11 @@ function Movie() {
             }
           };
           loadMovies();
-    },[dispatch,category])
+    },[dispatch,category,page])
     
-
+function pageChangeBack(){
+  setPage(page-1);
+}
 function pageChange(){
 
   setPage(page+1);
@@ -79,7 +81,10 @@ function pageChange(){
             <i className="fa-solid fa-arrow-right arrow"></i>
         </div>
 </div>
-<button onClick={pageChange}>Next Page</button>
+<div className="pageChangeButton">
+<button className="next-page" onClick={pageChangeBack}>&lt; Previous Page</button> Page:{page}
+<button className="next-page" onClick={pageChange}>Next Page &gt;</button> 
+</div>
 </div>
 </div>
 
