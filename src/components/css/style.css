@@ -139,11 +139,14 @@ body{
 }
 .movie-list-container{
     padding: 20px;
+    margin:0 5%
     
 
 }
 .movie-list-wrapper{
     position:relative;
+    /* margin:0 5%; */
+    /* width:100%; */
     /* background-color: #f5deb3; */
      
 }
@@ -152,7 +155,8 @@ body{
     align-items: center;
     height: 300px; */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); /* Adjust columns based on item width */
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); 
+    /* grid-template-columns: repeat(4,1fr); */
     gap: 20px; /* Space between grid items */
      
 }
@@ -338,6 +342,22 @@ body{
     .profile-container {
         display: none; /* Hide profile info on small screens */
     }
+    .movie-list-container{
+        /* padding: 20px; */
+        margin:0 5%
+        
+    
+    }
+    .movie-list{
+        /* display: flex;
+        align-items: center;
+        height: 300px; */
+        /* display: grid; */
+        /* grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); Adjust columns based on item width */
+        grid-template-columns: repeat(2,1fr);
+        /* gap: 20px; Space between grid items */
+         
+    }
 }
 
 /* Responsive Design */
@@ -366,15 +386,7 @@ body{
 }
 
 @media only screen and (max-width: 768px) {
-    .navbar-container {
-        /* flex-direction: column;
-        padding: 0 10px; */
-        
-    }
-    .menu-list {
-        /* flex-direction: column; */
-        /* font-size: 20px; */
-    }
+    
     .profile-container {
         margin-top: 10px;
         size: 20px;

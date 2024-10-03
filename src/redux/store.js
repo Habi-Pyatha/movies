@@ -5,8 +5,7 @@ import movieReducer from './movieSlice'
 const store=configureStore({
     reducer:{
         movies:movieReducer,
-        reviews:reviewReducer,
-
+        reviews:reviewReducer
     }
 })
 export default store;

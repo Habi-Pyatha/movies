@@ -2,14 +2,13 @@ import React from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { addReview, fetchMyReview, selectReview } from '../redux/reviewSlice'
 import Review from './Review'
+import { useState } from 'react'
 
-function PostReview({movieTitle}) {
+function PostReview({movieTitle}) { 
     const dispatch=useDispatch();
-        
+    const [rate,setRate]  = useState(5);
     const reviews=useSelector(selectReview);
-    // const[reviews,setReviews]=useEffect([])
-    // const[submitted,setSubmitted]=useEffect(false)
-    // const {movieTitle}=this.props;
+    
     const myReviewSubmit=(e)=>{
         e.preventDefault();
         const name=e.target.name.value;
@@ -21,7 +20,7 @@ function PostReview({movieTitle}) {
             author_details:{
                 rating:rating
             },
-            content:review,
+            content:review, 
         }
         console.log(reviewObject);
         console.log(e.target);
@@ -53,7 +52,9 @@ function PostReview({movieTitle}) {
 //     .then(response => response.json())
 //     .then(response => console.log(response))
 //     .catch(err => console.error(err));
-  
+  function changeRate(e){
+        setRate(e.target.value);
+  }
     return (
         <>
             <div className="form-review">
@@ -63,7 +64,7 @@ function PostReview({movieTitle}) {
         <input type="text" id="name" name="name"/><br/>
         {/* <label htmlFor="Rating">Choose a Rating:</label> */}
         <label htmlFor="Rating">Rating:</label>
-        <input type="range" id="rating" name="rating" min="0" max="10"></input>
+        <input type="range" id="rating" name="rating" onChange={changeRate} value={rate} min="0" max="10"></input>&nbsp;&nbsp;&nbsp;{rate}
         <p><label htmlFor="review">Your Review of {movieTitle}:</label></p>
         <textarea id="review" name="review" rows="4" cols="50"></textarea>
         <br />

@@ -6,6 +6,8 @@ import Review from './Review';
 import { useDispatch, useSelector } from 'react-redux';
 import {  fetchDescriptions, fetchReviews, selectDescription, selectReview } from '../redux/reviewSlice';
 import ReviewForm from './ReviewForm';
+import PostReview from './PostReview'
+
 const BASE_URL="https://api.themoviedb.org/3"
 
 const Moviedetails = () => {
@@ -109,22 +111,10 @@ const Moviedetails = () => {
 
         
     </div>
-    <ReviewForm movieTitle={movie.original_title}/>
+    {/* <ReviewForm movieTitle={movie.original_title}/> */}
+    <PostReview movieTitle={movie.original_title}/>
     {/* <ReviewForm/> */}
-    {/* <div className="form-review">
-      <form action="myReviewSubmit()">
-        <h1>Review</h1>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name"/><br/>
-        
-        <label for="Rating">Rating:</label>
-        <input type="range" id="rating" name="rating" min="0" max="10"></input>
-        <p><label for="w3review">Review of W3Schools:</label></p>
-        <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
-        <br />
-        <button>Submit</button>
-      </form>
-      </div> */}
+    
     </>
   )
 }

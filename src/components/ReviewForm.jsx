@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import Review from './Review'
+// import { useDispatch,useSelector } from 'react-redux'
+// import { fetchMyReview, selectMyReview } from '../redux/myReviewSlice'
  class ReviewForm extends Component {
     constructor(props) {
       super(props)
@@ -23,7 +25,10 @@ import Review from './Review'
           reviews:[...prevState.reviews,newReview],
           submitted:true,
         }));
-
+        // const dispatch=useDispatch();
+        
+        // dispatch(fetchMyReview(reviews));
+        // const reviews=useSelector(selectMyReview);
         // this.setState({name,rating,review,submitted:true})
         // ,()=>{
         //     console.log(this.state);
@@ -35,8 +40,9 @@ import Review from './Review'
       } ;
   render() {
     // const {name,rating,review,submitted}=this.state;
-    const {reviews}=this.state;
+    const {reviews}=this.state;  //this is the changed
     const {movieTitle}=this.props;
+    
     return (
       <div>
         <div className="form-review">
