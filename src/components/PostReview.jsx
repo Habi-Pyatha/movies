@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { addReview, fetchMyReview, selectReview } from '../redux/reviewSlice'
-import Review from './Review'
+import { addReview, selectReview } from '../redux/reviewSlice'
+// import Review from './Review'
 import { useState } from 'react'
 
 function PostReview({movieTitle}) { 

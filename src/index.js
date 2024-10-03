@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import { HashRouter, Routes, Route } from 'react-router-dom'; // Import HashRouter
 
 import reportWebVitals from './reportWebVitals';
 import Movie from './components/Movie';
@@ -12,46 +11,21 @@ import App from './App';
 import Sidebar from './components/Sidebar';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Movie />,
-      },
-      {
-        path:"/movies",
-        element:<Movie/>
-      },
-      {
-        path: "/moviedetail/:movieId",
-        element: <Moviedetails />
-      },
-      {
-        path:'/sidebar',
-        element:<Sidebar/>
-      }
-    ],
-  },
-  
-  // {
-  //   path: "/moviedetail/:movieId",
-  //   element: <Moviedetails />
-  // },
-  // {
-  //   path:'/sidebar',
-  //   element:<Sidebar/>
-  // }
-
-]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router} />
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route path="/" element={<Movie />} />
+            <Route path="/movies" element={<Movie />} />
+            <Route path="/moviedetail/:movieId" element={<Moviedetails />} />
+            <Route path="/sidebar" element={<Sidebar />} />
+          </Route>
+        </Routes>
+      </HashRouter>
     </Provider>
   </React.StrictMode>
 );

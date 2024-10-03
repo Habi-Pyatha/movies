@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Review from './Review';
 import { useDispatch, useSelector } from 'react-redux';
 import {  fetchDescriptions, fetchReviews, selectDescription, selectReview } from '../redux/reviewSlice';
-import ReviewForm from './ReviewForm';
+// import ReviewForm from './ReviewForm';
 import PostReview from './PostReview'
 
 const BASE_URL="https://api.themoviedb.org/3"
@@ -63,26 +63,10 @@ const Moviedetails = () => {
   },[movieId,dispatch])//useEffect end
 
   
-  // const myReviewSubmit=(e)=>{
-  //   e.preventDefault();
-  //   const name=e.target.name.value;
-  //   const rating=e.target.rating.value;
-  //   const review=e.target.review.value;
-  // }  
   
-  // const options = {
-  //   method: 'POST',
-  //   headers: {
-  //     accept: 'application/json',
-  //     'Content-Type': 'application/json;charset=utf-8',
-  //     Authorization: process.env.REACT_APP_BEARER
-  //   }
-  // };
-  
-  // fetch('https://api.themoviedb.org/3/movie/movie_id/rating', options)
-  //   .then(response => response.json())
-  //   .then(response => console.log(response))
-  //   .catch(err => console.error(err));
+
+  // const back=document.getElementById('title-overview')
+  // back.style.backgroundImage=url(`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`)
   return (
     <>
     <Navbar />
@@ -90,7 +74,9 @@ const Moviedetails = () => {
       <div className="outer">
          <div className="detail-image">
       <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt="" className="movie-list-item-image"/>
+      {/* <img src={`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`} alt="" className="movie-list-item-image"/> */}
       </div>
+      
       <div className="title-overview">
         <h1>
         { movie.original_title}

@@ -12,13 +12,14 @@ function Movie() {
     const [category,setCategory]=useState('now_playing')
     const dispatch=useDispatch()
     const movies=useSelector(selectMovies);
+    const [page,setPage]=useState(1);
     
     
     const categoryChange=useCallback((e)=>setCategory(e.target.value),[])
     useEffect(()=>{
         const loadMovies = async () => {
             try {
-              const response = await fetch(`${BASE_URL}/movie/${category}?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`);
+              const response = await fetch(`${BASE_URL}/movie/${category}?language=en-US&page=${page}&api_key=${process.env.REACT_APP_MOVIE_API_KEY}`);
               if (!response.ok) {
                 throw new Error('Failed to fetch movies');
               }
@@ -36,7 +37,11 @@ function Movie() {
     },[dispatch,category])
     
 
+function pageChange(){
 
+  setPage(page+1);
+  // loadMovies();
+}
 
     
     return (
@@ -74,7 +79,9 @@ function Movie() {
             <i className="fa-solid fa-arrow-right arrow"></i>
         </div>
 </div>
-</div></div>
+<button onClick={pageChange}>Next Page</button>
+</div>
+</div>
 
 
         </>
