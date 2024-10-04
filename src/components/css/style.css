@@ -136,51 +136,57 @@ select {
 
 /* Movie List Item Styles */
 .movie-list-item {
-    background-color: #ffffff; /* White background for movie items */
-    border: 1px solid #bdc3c7; /* Border around movie items */
-    border-radius: 8px; /* Rounded corners */
-    width: 200px; /* Fixed width for each movie item */
-    margin: 10px; /* Space between movie items */
-    overflow: hidden; /* Hide overflow for rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s; /* Transition for hover effect */
+    position: relative; /* Enable relative positioning */
+    background-color: #ffffff;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    width: 200px;
+    margin: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 /* Movie Item Image */
 .movie-list-item-image {
-    width: 100%; /* Full width of the item */
-    height: auto; /* Maintain aspect ratio */
-    border-bottom: 1px solid #bdc3c7; /* Border below image */
-    border-radius: 8px; /* Rounded corners for the image */
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #bdc3c7;
 }
 
 /* Movie Item Title */
 .movie-list-item-title {
-    font-size: 18px; /* Font size for title */
-    color: #34495e; /* Dark color for title */
-    font-weight: bold; /* Bold title */
-    margin: 10px 0; /* Space above and below title */
-    text-align: center; /* Center title */
+    font-size: 18px;
+    color: #34495e;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+    z-index: 1;
 }
 
 /* Movie Item Description */
 .movie-list-item-desc {
-    font-size: 14px; /* Font size for description */
-    color: #7f8c8d; /* Gray color for description */
-    margin: 0 10px 10px; /* Space around description */
-    text-align: center; /* Center description */
+    position: absolute; /* Position it absolutely within the container */
+    top: 0; /* Start at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    bottom: 0; /* Stretch to the bottom */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    color: white; /* White text */
+    display: flex; /* Flexbox to center the content */
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.3s ease; /* Smooth transition */
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 8px;
 }
 
-/* Button Styles (optional) */
-.movie-list-item-button {
-    padding: 8px 12px; /* Padding for button */
-    background-color: #3498db; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
-    cursor: pointer; /* Change cursor on hover */
-    margin: 10px 0; /* Space around button */
-    transition: background-color 0.3s; /* Transition for hover effect */
+/* Hover effect */
+.movie-list-item:hover .movie-list-item-desc {
+    opacity: 1; /* Fade in the description */
 }
 
 /* Hover Effect */
@@ -270,7 +276,9 @@ select {
     max-width: 600px; /* Maximum width of the form */
     margin: 20px auto; /* Center the form */
 }
-
+.form-review button{
+   margin-left: 40%;
+}
 /* Form Heading */
 .form-review h1 {
     font-size: 24px; /* Font size for the heading */
@@ -393,5 +401,8 @@ button:hover {
     .menu-list-item a {
         width: 100%; /* Full width for links */
         text-align: center; /* Center text */
+    }
+    .form-review{
+        margin:0 10px;
     }
 }

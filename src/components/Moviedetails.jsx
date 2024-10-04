@@ -69,7 +69,7 @@ const Moviedetails = () => {
   // back.style.backgroundImage=url(`https://image.tmdb.org/t/p/w200${movie.backdrop_path}`)
   const back = document.getElementById('outer');
 if (back) {
-    back.style.backgroundImage = `url(https://image.tmdb.org/t/p/w200${movie.backdrop_path})`;
+    back.style.backgroundImage = `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`;
     back.style.backgroundSize = 'cover'; // Ensure the image covers the div
      back.style.backgroundPosition = 'center';
 }

@@ -63,8 +63,8 @@ function PostReview({movieTitle}) {
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name"/><br/>
         {/* <label htmlFor="Rating">Choose a Rating:</label> */}
-        <label htmlFor="Rating">Rating:</label>
-        <input type="range" id="rating" name="rating" onChange={changeRate} value={rate} min="0" max="10"></input>&nbsp;&nbsp;&nbsp;{rate}
+        <label htmlFor="Rating">Rating:&nbsp;&nbsp;&nbsp;{rate}</label>
+        <input type="range" id="rating" name="rating" onChange={changeRate} value={rate} min="0" max="10"></input>
         <p><label htmlFor="review">Your Review of {movieTitle}:</label></p>
         <textarea id="review" name="review" rows="4" cols="50"></textarea>
         <br />
